@@ -1,1 +1,1 @@
-typeSearchIndex = [{"l":"All Classes","u":"allclasses-index.html"},{"p":"org.howard.edu.lsp.assignment2.test","l":"Driver"}];updateSearchResults();
+typeSearchIndex = [{"l":"All Classes","u":"allclasses-index.html"},{"p":"org.howard.edu.lsp.assignment2.combination","l":"CombinationSolution"},{"p":"org.howard.edu.lsp.assignment2.test","l":"Driver"},{"p":"org.howard.edu.lsp.assignment1","l":"HelloWorld"},{"p":"org.howard.edu.lsp.assignment2.test","l":"Test"}];updateSearchResults();
