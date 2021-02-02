@@ -17,7 +17,7 @@ public class CombinationSolution {
 	 * @author Samuel Calmday
 	 * @apiNote This method computes the results the possible solutions
 	 * 
-	 * @apiNote This method using a recursive algorithm to pick integers from the input array and compare their sum to the target value.
+	 * @apiNote This method uses a recursive algorithm to pick integers from the input array and compare their sum to the target value.
 	 */
     public ArrayList<HashSet<Integer>> arrayCombination(ArrayList<Integer> arr, Integer target) {
 
