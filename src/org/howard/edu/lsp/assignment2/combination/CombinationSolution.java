@@ -4,19 +4,31 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
-
+/**
+ * 
+ * @author Samuel Calmday
+ * @apiNote Container class for the array combination  solution
+ *
+ */
 public class CombinationSolution {
-    public ArrayList<Set<Integer>> arrayCombination(ArrayList<Integer> arr, Integer target) {
+	
+	/**
+	 * 
+	 * @author Samuel Calmday
+	 * @apiNote This method computes the results the possible solutions
+	 * 
+	 * @apiNote This method using a recursive algorithm to pick integers from the input array and compare their sum to the target value.
+	 */
+    public ArrayList<HashSet<Integer>> arrayCombination(ArrayList<Integer> arr, Integer target) {
 
-        Set<Set<Integer>> possibleSolution = new HashSet<Set<Integer>>();
+        HashSet<HashSet<Integer>> possibleSolution = new HashSet<HashSet<Integer>>();
         for (int i = 0; i < arr.size(); i++) {
 
             ArrayList<HashSet<Integer>> temp = this.combinationHelper(
                     arr,
                     target,
                     i,
-                    new ArrayList<Integer>(Arrays.asList(arr.get(i))),
-                    new HashSet<>(Arrays.asList(i)),
+                    new HashSet<Integer>(Arrays.asList(i)),
                     arr.get(i),
                     new ArrayList<HashSet<Integer>>()
             );
@@ -26,34 +38,43 @@ public class CombinationSolution {
             }
         }
 
-        return new ArrayList<>(possibleSolution);
+        return new ArrayList<HashSet<Integer>>(possibleSolution);
     }
-
+    
+    /**
+     * 
+     * @author Samuel Calmday
+     * @apiNote This function assists the arrayCombination method in generating a solution
+     *
+     */
     public ArrayList<HashSet<Integer>> combinationHelper(
 
             ArrayList<Integer> arr,
             Integer target,
             int index,
-            ArrayList<Integer> curArray,
             HashSet<Integer> used,
             int curValue,
             ArrayList<HashSet<Integer>> arrayList) {
 
         if (curValue > target) {
+        	
             return new ArrayList<HashSet<Integer>>();
+            
         } else if (curValue == target) {
+        	
             arrayList.add(used);
-        }
-
-        for (int i = index; i < arr.size(); i++) {
-            if (used.contains(i)) {
-                continue;
+            
+        } else {
+        	
+        	for (int i = index; i < arr.size(); i++) {
+                if (used.contains(i)) {
+                    continue;
+                }
+                HashSet<Integer> nxtUsed = new HashSet<Integer>(used);
+                nxtUsed.add(i);
+                this.combinationHelper(arr, target, index, nxtUsed, curValue + arr.get(i), arrayList);
             }
-            ArrayList<Integer> nxtArray = new ArrayList<>(curArray);
-            nxtArray.add(arr.get(i));
-            HashSet<Integer> nxtUsed = new HashSet<>(used);
-            nxtUsed.add(i);
-            this.combinationHelper(arr, target, index, nxtArray, nxtUsed, curValue + arr.get(i), arrayList);
+        	
         }
 
         return arrayList;

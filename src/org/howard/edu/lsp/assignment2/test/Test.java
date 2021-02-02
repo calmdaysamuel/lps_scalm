@@ -4,7 +4,21 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 
+/**
+ * 
+ * @author Samuel Calmday
+ * @apiNote Entry point for the org.howard.edu.lsp.assignment2 package
+ *
+ */
 public class Test {
+	
+	/**
+	 * 
+	 * @author Samuel Calmday
+	 * @apiNote Define your tests here using an instance of the Driver class
+	 * 
+	 *
+	 */
     public static void main(String[] args) {
 
         Driver driver = new Driver();
